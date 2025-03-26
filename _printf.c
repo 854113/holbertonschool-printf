@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 
-			switch (format[8])
+			switch (format[i])
 			{
 				case 'c':
 					count += print_char(args);
