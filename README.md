@@ -42,10 +42,6 @@ By building our own version of printf(), we gain:
 - Header containing function prototypes and necessary includes
 - Defines the structure of the _printf ecosystem
 
-**man_3_printf**
-- Comprehensive manual page in Unix man format
-- Provides detailed usage instructions and examples
-
 ## 🎯 Format Specifiers
 
 The `%` character serves as the gateway to formatting, followed by these specifiers:
