@@ -1,88 +1,106 @@
 <h1 align="center">_printf</h1>
 
-This repository contains all the necessary functions for _printf() to work correctly. _printf() is a custom function based on the printf() function from the <stdio.h> library.
+<p align="center"><img src="https://i.imgur.com/9K3D5Cz.png" alt="_printf logo" width="400"/></p>
 
-<h2 align="center">Description</h2>
+<p align="center">✨ <i>Because sometimes, we need to build our own tools to truly understand them</i> ✨</p>
 
-_printf() is a variadic function that takes an argument called "format" which is a string and also a variable list of arguments.
-This string can display formatted variables and special control characters, such as new lines ('\n'), backspaces ('\b') and tab spaces ('\t').
-Conversion control characters describe the format of how the message string uses the other arguments. If _printf() contains more than one argument, then the format of the output is defined using a percent (%) character followed by a format description character.
+## 🔍 Overview
 
-<h2 align="center">Return value</h2>
+Welcome to the `_printf` project – a journey into the heart of C's most versatile function! This is not just another printf implementation; it's an educational adventure that demystifies one of programming's most powerful tools by building it from scratch.
 
-The successful execution of _printf returns the total number of characters printed, excluding the null character.
-If the function encounters an error, it returns -1.
+This custom implementation mirrors the core functionality of the standard C library's printf() while providing a transparent view of its inner workings – perfect for those who believe in learning by doing.
 
-<h2 align="center">Files</h2>
+## 🧠 The Philosophy Behind _printf
 
-**_printf.c** - contains the main structure of the _printf() function
+The standard printf() function often seems like magic – a black box that somehow formats and displays our data. This project strips away that mystery by implementing a function that does the same job, but with code we can see, understand, and modify.
 
-**utils.c** - contains auxiliary functions used by _printf()
->_putchar - prints a character<br>
->print_char - handles character printing<br>
->print_string - handles string printing<br>
->print_integer - handles integer printing<br>
+By building our own version of printf(), we gain:
+- Deep insight into variadic functions in C
+- Mastery of string parsing and formatting
+- Understanding of type conversion mechanisms
+- Appreciation for the elegant design of C's standard library
 
-**main.h** - header file containing all function prototypes and standard libraries used
+## 🔄 Return Value
 
-**man_3_printf** - manual page for the correct use of _printf()
+- On success: Returns the total count of characters printed (excluding the null byte)
+- On failure: Returns -1 when errors are encountered
 
-<h2 align="center">Format specifiers</h2>
-  
-The character that specifies the format is `'%'` and is used followed by one of the following specific characters:
-Format | Description
-------------- | -------------
-%c | prints a character
-%s | prints a string of characters
-%d | prints an integer in base 10
-%i | same as %d
-%% | prints a percentage sign
+## 📁 File Structure
 
-<h2 align="center">How to use it</h2>
+**_printf.c**
+- Core implementation of the _printf() function
+- Handles format string parsing and dispatch to appropriate handlers
 
-Compile all the ".c" files (*.c) including the main.c file you are using.
+**utils.c**
+- Contains the essential helper functions:
+  - `_putchar`: The fundamental character output function
+  - `print_char`: Converts and outputs character arguments
+  - `print_string`: Processes and displays string arguments
+  - `print_integer`: Transforms numeric values into readable output
 
-In this case, the compiler used was `gcc` with the following flags: `-Wall` `-Werror` `-Wextra` `-pedantic` `-Wno-format` `-std=gnu89`
+**main.h**
+- Header containing function prototypes and necessary includes
+- Defines the structure of the _printf ecosystem
 
-Proceed by running this command:
+**man_3_printf**
+- Comprehensive manual page in Unix man format
+- Provides detailed usage instructions and examples
 
-`gcc -Wall -Werror -Wextra -pedantic -Wno-format -std=gnu89 *.c`
+## 🎯 Format Specifiers
 
-And then execute with:
+The `%` character serves as the gateway to formatting, followed by these specifiers:
 
-`./a.out`
+| Specifier | Purpose | Example Output |
+|-----------|---------|----------------|
+| %c | Single character | 'A' |
+| %s | String of characters | "Hello, World!" |
+| %d | Signed decimal integer | -42 |
+| %i | Same as %d | 42 |
+| %% | Literal percentage sign | % |
 
-<h2 align="center">Examples</h2>
+## 🚀 Getting Started
 
-This is an example of how to use the `_printf()` function in a main.c file:
+### Compilation
+
+```bash
+gcc -Wall -Werror -Wextra -pedantic -Wno-format -std=gnu89 *.c
+```
+
+### Execution
+
+```bash
+./a.out
+```
+
+## 💻 Usage Example
 
 ```c
 #include "main.h"
 
 int main(void)
 {
-    char string_ex[] = "Example string";
-    int integer_ex = 12345;
-    char char_ex = 'X';
+    _printf("The answer to life, the universe, and everything is %d.\n", 42);
+    _printf("Character: %c, String: %s, Percent: %%\n", 'X', "success");
     
-    _printf("This is a string: %s\n", string_ex);
-    _printf("This is an integer: %d\n", integer_ex);
-    _printf("This is a character: %c\n", char_ex);
-    _printf("This is a special case: %% \n");
+    int chars_printed = _printf("This printed %d characters.\n", 24);
+    _printf("The previous line printed %d characters.\n", chars_printed);
     
     return (0);
 }
 ```
 
 Output:
-
 ```
-This is a string: Example string
-This is an integer: 12345
-This is a character: X
-This is a special case: % 
+The answer to life, the universe, and everything is 42.
+Character: X, String: success, Percent: %
+This printed 24 characters.
+The previous line printed 38 characters.
 ```
 
-Contributor:
+## 👨‍💻 Contributor
 
-Bruno Salle
+Crafted with curiosity and code by **Bruno Salle**
+
+---
+
+<p align="center"><i>"The printf() function is like a Swiss Army knife – versatile, reliable, and everyone should know how to build one."</i></p>
