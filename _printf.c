@@ -18,6 +18,10 @@ static int handle_format(char format, va_list args, int *count)
 		case 's':
 			*count += print_string(args);
 			return (1);
+		case 'd':
+		case 'i':
+			*count += print_integer(args);
+			return (1);
 		case '%':
 			*count += _putchar('%');
 			return (1);
@@ -64,3 +68,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
